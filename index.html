@@ -93,13 +93,30 @@
             </div>
             <div class="project-page">
                 <div class="box">
-                    <div class="column game-media">Awesome gameplay screenshot!<br>🥳</div>
+                    <div class="column game-media">
+                        <!-- Game images, like in steam -->
+                        <div class="image-container">
+                            <img id="main-image" src="media_cub3d/titlemenuhover.png" alt="Main Image">
+                        </div>
+                        <div class="thumbnail-container">
+                            <img class="thumbnail active" src="media_cub3d/titlemenuhover.png" alt="Thumbnail 1" onclick="changeImage(this)">
+                            <img class="thumbnail" src="media_cub3d/levelmenu.png" alt="Thumbnail 2" onclick="changeImage(this)">
+                            <img class="thumbnail" src="media_cub3d/enemieskey.png" alt="Thumbnail 3" onclick="changeImage(this)">
+                            <img class="thumbnail" src="media_cub3d/doorlockkey.png" alt="Thumbnail 4" onclick="changeImage(this)">
+                            <img class="thumbnail" src="media_cub3d/leaderboard.png" alt="Thumbnail 5" onclick="changeImage(this)">
+                        </div>
+                    </div>
                     <div class="column game-info">
                         <div class="game-title">
                             <h1>Cub3D</h1>
                         </div>
                         <div class="game-text">
-                            
+                            <!-- Game description -->
+                             <p>
+                                <span class="accent">A raycasting game built for speedrunning.</span>
+                             </p>
+                             <p>Ever played Doom or Wolfenstein3D and thought they're too violent? Well, this game be just for you! Cub3D is all about trying to escape the slimey dungeons without harming anyone (although the monsters are trying to eat you).</p>
+                             <p>Built with MLX42 as a school project. Clone the repo from <a href="https://github.com/Turbonalle/cub3D" target="_blank">here</a>.</p>
                         </div>
                     </div>
                 </div>

@@ -149,6 +149,23 @@ function endDrag() {
 
 
 //------------------------------------------------------------------------------
+//  Project media
+//------------------------------------------------------------------------------
+
+function changeImage(thumbnail)
+{
+    // Change the main image source
+    document.getElementById("main-image").src = thumbnail.src;
+
+    // Remove active class from all thumbnails
+    document.querySelectorAll(".thumbnail").forEach(img => img.classList.remove("active"));
+
+    // Add active class to the clicked thumbnail
+    thumbnail.classList.add("active");
+}
+
+
+//------------------------------------------------------------------------------
 //  Icon and dot pressing
 //------------------------------------------------------------------------------
 
