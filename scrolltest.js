@@ -224,13 +224,13 @@ Array.from(projectDots.children).forEach((dot, index) => {
     dot.addEventListener("click", () => jumpToProject(index));
 });
 
-projectPages.addEventListener("mousedown", startDrag);
-projectPages.addEventListener("mousemove", onDrag);
-projectPages.addEventListener("mouseup", endDrag);
-projectPages.addEventListener("mouseleave", endDrag);
-projectPages.addEventListener("touchstart", startDrag);
-projectPages.addEventListener("touchmove", onDrag);
-projectPages.addEventListener("touchend", endDrag);
+// projectPages.addEventListener("mousedown", startDrag);
+// projectPages.addEventListener("mousemove", onDrag);
+// projectPages.addEventListener("mouseup", endDrag);
+// projectPages.addEventListener("mouseleave", endDrag);
+// projectPages.addEventListener("touchstart", startDrag);
+// projectPages.addEventListener("touchmove", onDrag);
+// projectPages.addEventListener("touchend", endDrag);
 
 // Initialize
 updateHorizontalPage();

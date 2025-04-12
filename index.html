@@ -54,7 +54,10 @@
                     <p>I started coding in 2021. Here are some of the projects I've been working on throughout my journey.</p>
                     <p>
                         <span class="highlight">Swipe</span> right or 
-                        <span class="highlight">click</span> the dots below to check some of my projects.</p>
+                        <span class="highlight">click</span> the dots below to check some of my projects.
+                    </p>
+                    <p>I'm also currently working on a concept called "Teacher's Tools". The idea is to create a place teachers could rely on for their daily need of educational material.</p>
+                    <a href="/teachers_tools/wordsearch_generator/index.html">Wordsearch Generator</a>
                 </div>
             </div>
             <div class="project-page">
@@ -75,7 +78,19 @@
             </div>
             <div class="project-page">
                 <div class="box">
-                    <div class="column game-media">Awesome gameplay screenshot!<br>🥳</div>
+                    <div class="column game-media">
+                        <!-- Game images, like in steam -->
+                        <div class="image-container">
+                            <img id="main-image" src="media_pong/pong_2v2_wavepowerup.png" alt="Main Image">
+                        </div>
+                        <div class="thumbnail-container">
+                            <img class="thumbnail active" src="media_pong/pong_2v2_wavepowerup.png" alt="Thumbnail 1" onclick="changeImage(this)">
+                            <img class="thumbnail" src="media_pong/pong_2v2_walllight.png" alt="Thumbnail 2" onclick="changeImage(this)">
+                            <img class="thumbnail" src="media_pong/pong_4v4_boost_light_powerup.png" alt="Thumbnail 3" onclick="changeImage(this)">
+                            <img class="thumbnail" src="media_pong/pong_home.png" alt="Thumbnail 4" onclick="changeImage(this)">
+                            <img class="thumbnail" src="media_pong/pong_credits.png" alt="Thumbnail 5" onclick="changeImage(this)">
+                        </div>
+                    </div>
                     <div class="column game-info">
                         <div class="game-title">
                             <h1>Pong</h1>
