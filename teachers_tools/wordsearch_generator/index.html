@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Search Generator</title>
+    <link rel="stylesheet" href="/teachers_tools/wordsearch_generator/style.css">
+</head>
+<body>
+    <div class="menuArea">
+        <h1>Word Search</h1>
+
+        <form id="wordSearchForm">
+            <label for="title">Title:</label><br>
+            <input type="text" id="input-title" name="title"><br><br>
+            <div class="input-pair">
+                <div class="input-field">
+                    <label for="columns">Columns:</label>
+                    <input type="text" id="input-columns" name="columns" min="1">
+                    <div class="error-message" id="columns-error"></div>
+                </div>
+                <div class="input-field">
+                    <label for="rows">Rows:</label>
+                    <input type="text" id="input-rows" name="rows" min="1">
+                    <div class="error-message" id="rows-error"></div>
+                </div>
+            </div><br>
+            <fieldset class="language-selection">
+                <label>Language:</label><br>
+                <input type="radio" name="language" value="swe" checked><label class="option-text" for="swe"> swe</label><br>
+                <input type="radio" name="language" value="fin"><label class="option-text" for="fin"> fin</label><br>
+                <input type="radio" name="language" value="eng"><label class="option-text" for="eng"> eng</label><br>
+            </fieldset><br>
+            <div class="checkboxes">
+                <label>Word Search Options:</label><br>
+                <input type="checkbox" id="diagonal" name="diagonal" value="true">
+                <label class="option-text" for="diagonal">Diagonal</label><br>
+                <input type="checkbox" id="reverse" name="reverse" value="true">
+                <label class="option-text" for="reverse">Reverse</label><br>
+                <input type="checkbox" id="overlap" name="overlap" value="true">
+                <label class="option-text" for="overlap">Overlap</label><br>
+            </div><br>
+            <label for="words">Words:</label><br>
+            <textarea id="input-words" name="words" style="resize: vertical;"></textarea><br><br>
+            <input type="submit" class="button" value="Generate"><br><br>
+            <div class="error-message" id="words-error"></div>
+        </form>
+
+        <div class="buttons">
+            <button class="button" id="downloadBtn">Download</button>
+            <button class="button" onclick="window.print()">Print</button>
+        </div>
+    </div>
+
+    <div class="previewArea">
+        <div class="preview" id="preview">
+            <div class="header" id="header">
+                <h1 id="title"></h1>
+            </div>
+            <div id="grid" class="grid">
+            </div>
+            <div id="word-list" class="word-list">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script src="/teachers_tools/wordsearch_generator/pdf_download.js"></script>
+    <script src="/teachers_tools/wordsearch_generator/generate_wordsearch.js"></script>
+    <script src="/teachers_tools/wordsearch_generator/cell_input_handler.js"></script>
+    <script src="/teachers_tools/wordsearch_generator/input_handler.js"></script>
+
+</body>
+</html>
