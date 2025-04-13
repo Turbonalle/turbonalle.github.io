@@ -12,25 +12,29 @@
 
         <form id="wordSearchForm">
             <label for="title">Title:</label><br>
-            <input type="text" id="input-title" name="title"><br><br>
+            <input type="text" id="input-title" name="title">
+            <div class="error-message" id="title-error"></div><br>
             <div class="input-pair">
-                <div class="input-field">
+                <div class="size-div">
                     <label for="columns">Columns:</label>
-                    <input type="text" id="input-columns" name="columns" min="1">
+                    <input type="text" class="size-field" id="input-columns" name="columns" min="1">
                     <div class="error-message" id="columns-error"></div>
                 </div>
-                <div class="input-field">
+                <div class="size-div">
                     <label for="rows">Rows:</label>
-                    <input type="text" id="input-rows" name="rows" min="1">
+                    <input type="text" class="size-field" id="input-rows" name="rows" min="1">
                     <div class="error-message" id="rows-error"></div>
                 </div>
             </div><br>
             <fieldset class="language-selection">
                 <label>Language:</label><br>
-                <input type="radio" name="language" value="swe" checked><label class="option-text" for="swe"> swe</label><br>
-                <input type="radio" name="language" value="fin"><label class="option-text" for="fin"> fin</label><br>
-                <input type="radio" name="language" value="eng"><label class="option-text" for="eng"> eng</label><br>
-            </fieldset><br>
+                <input type="radio" name="language" value="swe" checked>
+                <label class="option-text" for="swe"> swe</label><br>
+                <input type="radio" name="language" value="fin">
+                <label class="option-text" for="fin"> fin</label><br>
+                <input type="radio" name="language" value="eng">
+                <label class="option-text" for="eng"> eng</label><br>
+            </fieldset><br><br>
             <div class="checkboxes">
                 <label>Word Search Options:</label><br>
                 <input type="checkbox" id="diagonal" name="diagonal" value="true">
@@ -39,17 +43,17 @@
                 <label class="option-text" for="reverse">Reverse</label><br>
                 <input type="checkbox" id="overlap" name="overlap" value="true">
                 <label class="option-text" for="overlap">Overlap</label><br>
-            </div><br>
+            </div><br><br>
             <label for="words">Words:</label><br>
-            <textarea id="input-words" name="words" style="resize: vertical;"></textarea><br><br>
-            <input type="submit" class="button" value="Generate"><br><br>
-            <div class="error-message" id="words-error"></div>
+            <textarea id="input-words" name="words"></textarea>
+            <div class="error-message" id="words-error"></div><br>
+            <div class="buttons">
+                <input type="submit" class="button" value="Generate">
+                <button class="button" id="downloadBtn">Download</button>
+                <button class="button" onclick="window.print()">Print</button>
+            </div>
         </form>
 
-        <div class="buttons">
-            <button class="button" id="downloadBtn">Download</button>
-            <button class="button" onclick="window.print()">Print</button>
-        </div>
     </div>
 
     <div class="previewArea">

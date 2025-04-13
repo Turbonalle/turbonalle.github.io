@@ -1,3 +1,7 @@
+//------------------------------------------------------------------------------
+//	Validation
+//------------------------------------------------------------------------------
+
 function validateCols() {
 	const colsInput = document.getElementById('input-columns');
 	const colsError = document.getElementById('columns-error');
@@ -41,16 +45,33 @@ function validateWordInput() {
 	const value = element.value;
 
 	if (!value || !regex.test(value)) {
-		console.log("Invalid word input: " + value);
-		element.style.borderColor = "red";
+		element.classList.add("input-error");
+		error.textContent = "Please enter words separated by spaces.";
 		return false;
 	}
 
-	console.log("Valid word input: " + value);
-	element.style.borderColor = "";
+	element.classList.remove("input-error");
+	error.textContent = "";
 	return true;
 }
 
+//------------------------------------------------------------------------------
+
+function validInput(input) {
+	if (input.title === "" ||
+		input.cols === 0 ||
+		input.rows === 0 ||
+		input.language === "" ||
+		input.words.length === 0) {
+			return false;
+	}
+
+	return true;
+}
+
+
+//------------------------------------------------------------------------------
+//	Get input values
 //------------------------------------------------------------------------------
 
 function getTitle() {
@@ -124,20 +145,9 @@ function getWords() {
 	return words;
 }
 
+
 //------------------------------------------------------------------------------
-
-function validInput(input) {
-	if (input.title === "" ||
-		input.cols === 0 ||
-		input.rows === 0 ||
-		input.language === "" ||
-		input.words.length === 0) {
-			return false;
-	}
-
-	return true;
-}
-
+//	Submit
 //------------------------------------------------------------------------------
 
 function submitForm() {
@@ -174,6 +184,9 @@ function submitForm() {
 	generateWordSearch(input);
 }
 
+
+//------------------------------------------------------------------------------
+//	Initialize
 //------------------------------------------------------------------------------
 
 function addEventListeners() {
