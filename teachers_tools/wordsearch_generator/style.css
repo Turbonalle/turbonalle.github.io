@@ -220,19 +220,25 @@ input[type="text"].input-error {
 /*----------------------------------------------------------------------------*/
 
 @media print {
+	html, body {
+		height: 100%;
+		overflow: hidden;
+	}
+
 	body * {
 		visibility: hidden;
 	}
 
-	/* Make the preview area and everything inside visible*/
 	.preview, .preview * {
 		visibility: visible;
 	}
 
 	.preview {
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 180mm;
+		height: 257mm;
 	}
 }
