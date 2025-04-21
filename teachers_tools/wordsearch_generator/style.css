@@ -158,6 +158,7 @@ input[type="text"].input-error {
 }
 
 .preview {
+	/* position: relative; */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -176,6 +177,7 @@ input[type="text"].input-error {
 }
 
 .grid {
+	position: relative;
 	height: 50%;
 	width: 100%;
 	display: grid;
@@ -212,6 +214,17 @@ input[type="text"].input-error {
 	column-gap: 20px;
 	margin-top: 30px;
 	font-size: 15px;
+}
+
+.word-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/* background: red;
+	opacity: 0.5; */
+	pointer-events: none; /* so it doesn't block clicks */
 }
 
 

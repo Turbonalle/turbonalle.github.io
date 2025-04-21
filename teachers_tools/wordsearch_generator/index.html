@@ -52,7 +52,9 @@
                 <input type="submit" class="button" value="Generate">
                 <button class="button" id="downloadBtn">Download</button>
                 <button class="button" onclick="window.print()">Print</button>
-            </div>
+            </div><br>
+            <input type="checkbox" id="show-words" name="show-words" value="false">
+            <label class="show-words" for="show-words">Show words</label>
         </form>
 
     </div>
@@ -63,6 +65,7 @@
                 <h1 id="title"></h1>
             </div>
             <div id="grid" class="grid">
+                <svg id="word-overlay" class="word-overlay"></svg>
             </div>
             <div id="word-list" class="word-list">
             </div>
@@ -73,10 +76,12 @@
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <script src="/teachers_tools/wordsearch_generator/pdf_download.js"></script>
     <script src="/teachers_tools/wordsearch_generator/generate_wordsearch.js"></script>
+    <script src="/teachers_tools/wordsearch_generator/toggle_placed_words.js"></script>
     <script src="/teachers_tools/wordsearch_generator/cell_input_handler.js"></script>
     <script src="/teachers_tools/wordsearch_generator/input_handler.js"></script>
     <!-- <script src="pdf_download.js"></script>
     <script src="generate_wordsearch.js"></script>
+    <script src="toggle_placed_words.js"></script>
     <script src="cell_input_handler.js"></script>
     <script src="input_handler.js"></script> -->
 

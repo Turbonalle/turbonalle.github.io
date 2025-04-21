@@ -1,11 +1,26 @@
+let placedWords = [];
+
 function clearReview() {
 	// Create a blank slate
 	let titleDiv = document.getElementById('title');
-	let grid = document.getElementById('grid');
 	let list = document.getElementById('word-list');
+	let grid = document.getElementById('grid');
+	
+	// Clear the title and word list
 	titleDiv.innerHTML = "";
-	grid.innerHTML = "";
 	list.innerHTML = "";
+
+	// Remove all the cells from the grid
+	const cells = grid.querySelectorAll('.cell');
+	cells.forEach(cell => cell.remove());
+
+	// Empty the SVG element
+	const svg = document.getElementById('word-overlay');
+	if (svg) {
+		svg.innerHTML = "";
+	} else {
+		console.log("SVG element not found");
+	}
 }
 
 //------------------------------------------------------------------------------
@@ -38,80 +53,36 @@ function calculateCellSize(grid, rows, cols) {
 
 //------------------------------------------------------------------------------
 
-function placeWord(cells, word, startRow, startCol, direction) {
+function placeWord(cells, word, overlapAllowed) {
 	const rows = cells.length;
 	const cols = cells[0].length;
-	const wordLength = word.length;
 
-	let row = startRow;
-	let col = startCol;
-
-	console.log("Row: " + row);
-	console.log("Col: " + col);
-
-	if (direction === 0 || direction === 4 || direction === 5) {
-		if (row < wordLength - 1) {
-			row = Math.floor(Math.random() * (rows - wordLength)) + (wordLength - 1);
-		}
-	}
-
-	if (direction === 1 || direction === 6 || direction === 7) {
-		if (row > rows - wordLength) {
-			row = Math.floor(Math.random() * (rows - wordLength));
-		}
-	}
-
-	if (direction === 2 || direction === 4 || direction === 6) {
-		if (col < wordLength - 1) {
-			col = Math.floor(Math.random() * (cols - wordLength)) + (wordLength - 1);
-		}
-	}
-
-	if (direction === 3 || direction === 5 || direction === 7) {
-		if (col > cols - wordLength) {
-			col = Math.floor(Math.random() * (cols - wordLength));
-		}
-	}
-
-	console.log("Row: " + row);
-	console.log("Col: " + col);
-	console.log("Dir: " + direction);
-
-	// Calculate the direction offsets
-	const directions = [
-		[-1, 0], // Up
-		[1, 0],  // Down
-		[0, -1], // Left
-		[0, 1],  // Right
-		[-1, -1],// Up-Left
-		[-1, 1], // Up-Right
-		[1, -1], // Down-Left
-		[1, 1]   // Down-Right
-	];
-
-	const [rowOffset, colOffset] = directions[direction];
-
-	for (let i = 0; i < wordLength; i++) {
-		const newRow = row + i * rowOffset;
-		const newCol = col + i * colOffset;
+	for (let i = 0; i < word.word.length; i++) {
+		const newRow = word.row + i * word.y;
+		const newCol = word.col + i * word.x;
 
 		if (newRow < 0 || newRow >= rows || newCol < 0 || newCol >= cols) {
 			console.log("Out of bounds: " + newRow + ", " + newCol);
 			return false; // Out of bounds
 		}
-		
-		if (cells[newRow][newCol].textContent !== '') {
-			console.log("Cell occupied: " + newRow + ", " + newCol);
-			return false; // Cell already occupied by a different letter
+
+		if (overlapAllowed) {
+			if (cells[newRow][newCol].textContent !== '' && cells[newRow][newCol].textContent !== word.word[i]) {
+				return false;
+			}
+		} else {
+			if (cells[newRow][newCol].textContent !== '') {
+				return false;
+			}
 		}
 	}
 
-	for (let i = 0; i < wordLength; i++) {
-		const newRow = row + i * rowOffset;
-		const newCol = col + i * colOffset;
+	for (let i = 0; i < word.word.length; i++) {
+		const newRow = word.row + i * word.y;
+		const newCol = word.col + i * word.x;
 		
-		console.log("Placing letter: " + word[i] + " at " + newRow + ", " + newCol);
-		cells[newRow][newCol].innerHTML = word[i];
+		console.log("Placing letter: " + word.word[i] + " at " + newRow + ", " + newCol);
+		cells[newRow][newCol].innerHTML = word.word[i];
 	}
 
 	return true;
@@ -143,6 +114,8 @@ function createCells(rows, cols, cellSize) {
 		for (let j = 0; j < cols; j++) {
 			const cell = document.createElement('div');
 			cell.className = 'cell';
+			cell.dataset.row = i;
+			cell.dataset.col = j;
 			grid.appendChild(cell);
 			cell.style.height = `${cellSize}px`;
 			cell.style.width = `${cellSize}px`;
@@ -155,8 +128,81 @@ function createCells(rows, cols, cellSize) {
 
 //------------------------------------------------------------------------------
 
-function placeWords(cells, words, rows, cols) {
-	// Place the words in the grid
+const ALL_DIRECTIONS = [
+	{ name: 'up',         y: -1, x:  0, diagonal: false, reverse: true },
+	{ name: 'down',       y:  1, x:  0, diagonal: false, reverse: false },
+	{ name: 'left',       y:  0, x: -1, diagonal: false, reverse: true },
+	{ name: 'right',      y:  0, x:  1, diagonal: false, reverse: false },
+	{ name: 'up-left',    y: -1, x: -1, diagonal: true,  reverse: true },
+	{ name: 'up-right',   y: -1, x:  1, diagonal: true,  reverse: true },
+	{ name: 'down-left',  y:  1, x: -1, diagonal: true,  reverse: true },
+	{ name: 'down-right', y:  1, x:  1, diagonal: true,  reverse: false },
+];
+
+function getValidDirections(allowDiagonal, allowReverse) {
+	return ALL_DIRECTIONS
+		.map((d, i) => ({ ...d, index: i }))
+		.filter(d => {
+			if (!allowDiagonal && d.diagonal) return false;
+			if (!allowReverse && d.reverse) return false;
+			return true;
+		});
+}
+
+//------------------------------------------------------------------------------
+
+function shuffleArray(array) {
+	for (let i = array.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[array[i], array[j]] = [array[j], array[i]];
+	}
+}
+
+//------------------------------------------------------------------------------
+
+function findValidStart(cells, word, direction) {
+	const rows = cells.length;
+	const cols = cells[0].length;
+	const wordLength = word.word.length;
+
+	console.log("Row: " + word.row);
+	console.log("Col: " + word.col);
+
+	if (direction.name === "up" || direction.name === "up-left" || direction.name === "up-right") {
+		if (word.row < wordLength - 1) {
+			word.row = Math.floor(Math.random() * (rows - wordLength)) + (wordLength - 1);
+		}
+	}
+
+	if (direction.name === "down" || direction.name === "down-left" || direction.name === "down-right") {
+		if (word.row > rows - wordLength) {
+			word.row = Math.floor(Math.random() * (rows - wordLength));
+		}
+	}
+
+	if (direction.name === "left" || direction.name === "up-left" || direction.name === "down-left") {
+		if (word.col < wordLength - 1) {
+			word.col = Math.floor(Math.random() * (cols - wordLength)) + (wordLength - 1);
+		}
+	}
+
+	if (direction.name === "right" || direction.name === "up-right" || direction.name === "down-right") {
+		if (word.col > cols - wordLength) {
+			word.col = Math.floor(Math.random() * (cols - wordLength));
+		}
+	}
+
+	console.log("Row: " + word.row);
+	console.log("Col: " + word.col);
+	console.log("Dir: " + direction.name);
+}
+
+//------------------------------------------------------------------------------
+
+function placeWords(cells, words, rows, cols, validDirections, overlap) {
+	console.log("Valid directions: ");
+	console.log(validDirections);
+
 	let placedWords = [];
 	for (let word of words) {
 		let placed = false;
@@ -166,17 +212,21 @@ function placeWords(cells, words, rows, cols) {
 			let startCol = Math.floor(Math.random() * cols);
 			for (let testedCols = 0; testedCols < cols && !placed; testedCols++) {
 				let col = (startCol + testedCols) % cols;
-				const originalDirection = Math.floor(Math.random() * 8);
-				for (let testedDirections = 0; testedDirections < 8 && !placed; testedDirections++) {
-					let direction = (originalDirection + testedDirections) % 8;
-					placed = placeWord(cells, word, row, col, direction);
+				let directions = [...validDirections];
+				shuffleArray(directions);
+				for (let d of directions) {
+					let wordObj = {
+						word: word,
+						row: row,
+						col: col,
+						y: d.y,
+						x: d.x
+					};
+					findValidStart(cells, wordObj, d);
+					placed = placeWord(cells, wordObj, overlap);
 					if (placed) {
-						placedWords.push({
-							word: word,
-							row: row,
-							col: col,
-							direction: direction
-						});
+						placedWords.push(wordObj);
+						break;
 					}
 				}
 			}
@@ -235,12 +285,13 @@ function generateWordList(words) {
 function generateWordSearch(input) {
 	console.log("Generating word search");
 
+	placedWords = [];
 	clearReview();
+
 	setTitle(input.title);
 
 	let grid = document.getElementById('grid');
 
-	// const regex = setRegex(language);
 	const cellSize = calculateCellSize(grid, input.rows, input.cols);
 
 	setGridStyle(grid, input.rows, input.cols, cellSize);
@@ -248,8 +299,14 @@ function generateWordSearch(input) {
 	input.words.sort((a, b) => b.length - a.length);
 
 	let cells = createCells(input.rows, input.cols, cellSize);
-	let placedWords = placeWords(cells, input.words, input.rows, input.cols);
+	const validDirections = getValidDirections(input.diagonal, input.reverse);
+	placedWords = placeWords(cells, input.words, input.rows, input.cols, validDirections, input.overlap);
 	fillRestWithRandomLetters(cells, input.rows, input.cols, input.language);
 
 	generateWordList(placedWords);
+
+	// Show words if checkbox is checked
+	if (document.getElementById('show-words').checked) {
+		togglePlacedWords(true);
+	}
 }
