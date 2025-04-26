@@ -152,10 +152,22 @@ function endDrag() {
 //  Project media
 //------------------------------------------------------------------------------
 
-function changeImage(thumbnail)
+function changePongImage(thumbnail)
 {
     // Change the main image source
-    document.getElementById("main-image").src = thumbnail.src;
+    document.getElementById("pong-image").src = thumbnail.src;
+
+    // Remove active class from all thumbnails
+    document.querySelectorAll(".thumbnail").forEach(img => img.classList.remove("active"));
+
+    // Add active class to the clicked thumbnail
+    thumbnail.classList.add("active");
+}
+
+function changeCub3dImage(thumbnail)
+{
+    // Change the main image source
+    document.getElementById("cub3d-image").src = thumbnail.src;
 
     // Remove active class from all thumbnails
     document.querySelectorAll(".thumbnail").forEach(img => img.classList.remove("active"));
