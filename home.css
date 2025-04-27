@@ -141,6 +141,7 @@ a:hover {
 }
 
 .project-page {
+	position: relative;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -153,6 +154,7 @@ a:hover {
 	width: 250px;
 	height: 70vh;
 	text-align: center;
+	z-index: 1;
 }
 
 .projects-container h1 {
@@ -165,15 +167,12 @@ a:hover {
 	height: 100%;
 	color: rgb(78, 131, 76);
 	filter: brightness(10%);
-	z-index: -1;
+	z-index: 0;
 }
 
 .box {
 	width: 80%;
 	height: 70%;
-	/* background: rgb(31, 67, 0); */
-	/* border-radius: 8px;
-	border: 2px solid rgb(0, 214, 0); */
 	display: flex;
 	flex-direction: row;
 }
@@ -189,7 +188,6 @@ a:hover {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	/* background: var(--color-temp); */
 	filter: brightness(90%);
 }
 

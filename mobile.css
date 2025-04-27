@@ -1,0 +1,31 @@
+@media (max-width: 768px) {
+	body {
+		font-size: 14px;
+	}
+
+	.profile-container {
+		width: 90%;
+	}
+
+	.welcome-text {
+		width: 100%;
+		text-align: center;
+	}
+
+	.box {
+		flex-direction: column-reverse;
+	}
+
+	.game-media {
+		width: 100%;
+	}
+
+	.game-info {
+		width: 100%;
+	}
+
+	.game-title h1 {
+		margin: 0;
+		padding: 0;
+	}
+}
