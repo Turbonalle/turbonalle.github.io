@@ -1,0 +1,126 @@
+:root {
+	--color-text: #e3e3e3;
+	--color-vs: #af9056;
+	--color-bg: #141016;
+	--color-match: #3a3a3a;
+	--color-border: #9d9d9d;
+	--color-hover: #585858;
+	--color-winner: #4b884a;
+	--color-winner-hover: #5da95c;
+	--color-loser: #834343;
+	--color-loser-hover: #a35353;
+	--color-champion: rgb(255, 215, 0);
+}
+
+body {
+	font-family: Arial, sans-serif;
+	padding: 20px;
+	background: var(--color-bg);
+	color: var(--color-text);
+}
+
+h1 {
+	text-align: center;
+}
+
+#input-area, #bracket {
+	max-width: 600px;
+	margin: 20px auto;
+}
+
+textarea {
+	width: 100%;
+	height: 100px;
+}
+
+button {
+	display: block;
+	width: 50%;
+	translate: 50%;
+	padding: 10px;
+	font-size: 16px;
+	background-color: var(--color-hover);
+	color: var(--color-text);
+	border-radius: 5px;
+}
+
+button:hover {
+	background-color: var(--color-vs);
+}
+
+.round {
+	margin-top: 30px;
+}
+
+.round h2 {
+	text-align: center;
+}
+
+.match {
+	display: flex;
+	justify-content: space-between;
+	background: var(--color-match);
+	padding: 10px;
+	margin: 5px 0;
+	border: 1px solid var(--color-border);
+}
+
+.match-layout {
+	width: 100%;
+	display: flex;
+	gap: 10px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.name {
+	flex: 1;
+	text-align: center;
+	cursor: pointer;
+	padding: 5px;
+	border-radius: 5px;
+	transition: background-color 0.2s, color 0.2s;
+}
+
+.name:hover {
+	background-color: var(--color-hover);
+}
+
+.vs {
+	color: var(--color-vs);
+	font-weight: bold;
+}
+
+.winner {
+	background-color: var(--color-winner);
+	font-weight: bold;
+}
+
+.winner:hover {
+	background-color: var(--color-winner-hover);
+}
+
+.loser {
+	background-color: var(--color-loser);
+	font-weight: bold;
+}
+
+.loser:hover {
+	background-color: var(--color-loser-hover);
+}
+
+.champion-banner {
+	margin-top: 2em;
+	font-size: 1.5em;
+	font-weight: bold;
+	text-align: center;
+	color: var(--color-champion);
+}
+
+.champion-banner .tournament-winner-name {
+	margin-top: 0;
+	font-size: 3em;
+	font-weight: bold;
+	text-align: center;
+	color: var(--color-winner);
+}
