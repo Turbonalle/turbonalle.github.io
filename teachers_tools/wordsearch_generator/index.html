@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word Search Generator</title>
-    <link rel="stylesheet" href="/teachers_tools/wordsearch_generator/style.css">
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- <link rel="stylesheet" href="/teachers_tools/wordsearch_generator/style.css"> -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="menuArea">
@@ -50,8 +50,8 @@
             <div class="error-message" id="words-error"></div><br>
             <div class="buttons">
                 <input type="submit" class="button" value="Generate">
-                <button class="button" id="downloadBtn">Download</button>
-                <button class="button" onclick="window.print()">Print</button>
+                <button type="button" class="button" id="downloadBtn">Download</button>
+                <button type="button" class="button" onclick="window.print()">Print</button>
             </div><br>
             <input type="checkbox" id="show-words" name="show-words" value="false">
             <label class="show-words" for="show-words">Show words</label>
@@ -74,16 +74,16 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
-    <script src="/teachers_tools/wordsearch_generator/pdf_download.js"></script>
+    <!-- <script src="/teachers_tools/wordsearch_generator/pdf_download.js"></script>
     <script src="/teachers_tools/wordsearch_generator/generate_wordsearch.js"></script>
     <script src="/teachers_tools/wordsearch_generator/toggle_placed_words.js"></script>
     <script src="/teachers_tools/wordsearch_generator/cell_input_handler.js"></script>
-    <script src="/teachers_tools/wordsearch_generator/input_handler.js"></script>
-    <!-- <script src="pdf_download.js"></script>
+    <script src="/teachers_tools/wordsearch_generator/input_handler.js"></script> -->
+    <script src="pdf_download.js"></script>
     <script src="generate_wordsearch.js"></script>
     <script src="toggle_placed_words.js"></script>
     <script src="cell_input_handler.js"></script>
-    <script src="input_handler.js"></script> -->
+    <script src="input_handler.js"></script>
 
 </body>
 </html>
