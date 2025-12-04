@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JB - Portfolio</title>
+    <link rel="stylesheet" href="scroll.css">
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="mobile.css">
 </head>
@@ -21,156 +22,148 @@
         </defs>
     </svg>
 
-    <!-- Home -->
-    <div class="vertical-page profile active">
-        <img src="profile_edit_nobg.png" alt="profile">
-        <div class="profile-container">
-            <div class="welcome-text">
-                <h1>Jonathan Bagger</h1>
-                <p>
-                    <span class="accent">Welcome to my portfolio page.</span>
-                </p>
-                <p>I'm a sports instructor, programmer, coding teacher, educational assistant and a father.</p>
-                <p>I love staying fit and creating things.</p>
-                <p>
-                    <span class="highlight">Scroll</span>, 
-                    <span class="highlight">swipe</span> or 
-                    <span class="highlight">click</span> icons or arrow keys to look around.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Projects -->
-    <div class="vertical-page">
-        <div class="horizontal-pages" id="page2">
-            <div class="project-page projects">
-                <svg class="icon-bg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
-                    <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
-                    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
-                    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
-                </svg>
-                <div class="projects-container">
-                    <h1>Projects</h1>
-                    <p>I started my coding journey in 2021, after hearing about Hive Helsinki (a 42 school). I graduated from there in 2024, and have been working on my own projects ever since.</p>
+    <div class="full-page">
+        <!-- Home -->
+        <div class="vertical-page profile active">
+            <img src="profile_edit_nobg.png" alt="profile">
+            <div class="profile-container">
+                <div class="welcome-text">
+                    <h1>Jonathan Bagger</h1>
                     <p>
-                        <span class="highlight">Swipe</span> right,
-                        <span class="highlight">click</span> arrow keys or the dots below to check some of my projects I've been working on throughout my journey.
+                        <span class="accent">Welcome to my portfolio page.</span>
                     </p>
-                    <p>I'm also currently working on a concept called "Teacher's Tools". The idea is to create a place teachers could rely on for their daily need of educational material:</p>
-                    <a href="/teachers_tools/wordsearch_generator/index.html">Wordsearch Generator</a>
+                    <p>I'm a sports instructor, programmer, coding teacher, educational assistant and a father.</p>
+                    <p>I love staying fit and creating things.</p>
+                    <p>
+                        <span class="highlight">Scroll</span>, 
+                        <span class="highlight">swipe</span> or 
+                        <span class="highlight">click</span> icons or arrow keys to look around.
+                    </p>
                 </div>
             </div>
-            <div class="project-page">
-                <div class="box">
-                    <div class="column game-media">Awesome gameplay screenshot!<br>🥳</div>
-                    <div class="column game-info">
-                        <div class="game-title title-image">
-                            <img src="OozeHeart.png" alt="Game Title">
-                        </div>
-                        <div class="game-text">
-                            <p>Deep beneath the earth, humanity has uncovered a vast, ancient cavern filled with glowing, mystical resources unlike anything seen before. Your job is to excavate these resources and try to get as deep into the cave as possible. But beware, unknown creatures are lurking in the depths.<br>Descend. Defend. Survive.</p>
-                            <!-- <p>Descend. Defend. Survive.</p> -->
-                            <p>This is a tower defense game with a mining twist. Place towers like in any tower defense, but mine resources in order to unlock features and improvements.</p>
-                            <p>The game is written in C++, using SFML.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="project-page">
-                <div class="box">
-                    <div class="column game-media">
-                        <!-- Game images, like in steam -->
-                        <div class="image-container">
-                            <img id="pong-image" src="media_pong/pong_2v2_wavepowerup.png" alt="Main Image">
-                        </div>
-                        <div class="thumbnail-container">
-                            <img class="thumbnail active" src="media_pong/pong_2v2_wavepowerup.png" alt="Thumbnail 1" onclick="changePongImage(this)">
-                            <img class="thumbnail" src="media_pong/pong_2v2_walllight.png" alt="Thumbnail 2" onclick="changePongImage(this)">
-                            <img class="thumbnail" src="media_pong/pong_4v4_boost_light_powerup.png" alt="Thumbnail 3" onclick="changePongImage(this)">
-                            <img class="thumbnail" src="media_pong/pong_home.png" alt="Thumbnail 4" onclick="changePongImage(this)">
-                            <img class="thumbnail" src="media_pong/pong_credits.png" alt="Thumbnail 5" onclick="changePongImage(this)">
-                        </div>
-                    </div>
-                    <div class="column game-info">
-                        <div class="game-title">
-                            <h1>Pong</h1>
-                        </div>
-                        <div class="game-text">
-                            <p>
-                                <span class="accent">The famous pong game visualized in 3D.</span>
-                            </p>
-                            <p>Play against your friend(s) or an AI. Play either the classic 1v1 or a 4-player rumble. Play normal mode or get crazy with powerups. The choice is yours!</p>
-                            <p>This was our final school group project, where we were supposed to create a website where people could log in and play against each other. I was mainly in charge of creating the actual game, using Three.js to create the stunning 3D world.</p>
-                            <p>Instructions and download on this Github repo.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="project-page">
-                <div class="box">
-                    <div class="column game-media">
-                        <!-- Game images, like in steam -->
-                        <div class="image-container">
-                            <img id="cub3d-image" src="media_cub3d/titlemenuhover.png" alt="Main Image">
-                        </div>
-                        <div class="thumbnail-container">
-                            <img class="thumbnail active" src="media_cub3d/titlemenuhover.png" alt="Thumbnail 1" onclick="changeCub3dImage(this)">
-                            <img class="thumbnail" src="media_cub3d/levelmenu.png" alt="Thumbnail 2" onclick="changeCub3dImage(this)">
-                            <img class="thumbnail" src="media_cub3d/enemieskey.png" alt="Thumbnail 3" onclick="changeCub3dImage(this)">
-                            <img class="thumbnail" src="media_cub3d/doorlockkey.png" alt="Thumbnail 4" onclick="changeCub3dImage(this)">
-                            <img class="thumbnail" src="media_cub3d/leaderboard.png" alt="Thumbnail 5" onclick="changeCub3dImage(this)">
-                        </div>
-                    </div>
-                    <div class="column game-info">
-                        <div class="game-title">
-                            <h1>Cub3D</h1>
-                        </div>
-                        <div class="game-text">
-                            <!-- Game description -->
-                             <p>
-                                <span class="accent">A raycasting game built for speedrunning.</span>
-                             </p>
-                             <p>Ever played Doom or Wolfenstein3D and thought they're too violent? Well, this game be just for you! Cub3D is all about trying to escape the slimey dungeons without harming anyone (although the monsters are trying to eat you).</p>
-                             <p>Built with MLX42 as a school project. Clone the repo from <a href="https://github.com/Turbonalle/cub3D" target="_blank">here</a>.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
         </div>
-        <div class="dots" id="projectDots">
-            <div class="dot active"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
-    </div>
 
-    <!-- Info -->
-    <div class="vertical-page">
-        <div class="info-page">
-            <svg class="info-bg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
-                <circle cx="12" cy="7" r="4"/>
-            </svg>
-            <div class="info-container">
-                <h1>Skills</h1>
-                <p>Placeholder text...</p>
+        <!-- Projects -->
+        <div class="vertical-page">
+            <div class="horizontal-pages" id="page2">
+                <div class="hp project-page projects">
+                    <svg class="icon-bg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+                        <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+                        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+                        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+                    </svg>
+                    <div class="projects-container">
+                        <h1>Projects</h1>
+                        <p>I started my coding journey in 2021, after hearing about Hive Helsinki (a 42 school). I graduated from there in 2024, and have been working on my own projects ever since.</p>
+                        <p>
+                            <span class="highlight">Swipe</span> right,
+                            <span class="highlight">click</span> arrow keys or the dots below to check some of my projects I've been working on throughout my journey.
+                        </p>
+                        <p>I'm also currently working on a concept called "Teacher's Tools". The idea is to create a place teachers could rely on for their daily need of educational material:</p>
+                        <a href="/teachers_tools/wordsearch_generator/index.html">Wordsearch Generator</a>
+                    </div>
+                </div>
+                <div class="hp project-page">
+                    <div class="box">
+                        <div class="column game-media">Awesome gameplay screenshot!<br>🥳</div>
+                        <div class="column game-info">
+                            <div class="game-title title-image">
+                                <img src="OozeHeart.png" alt="Game Title">
+                            </div>
+                            <div class="game-text">
+                                <p>Deep beneath the earth, humanity has uncovered a vast, ancient cavern filled with glowing, mystical resources unlike anything seen before. Your job is to excavate these resources and try to get as deep into the cave as possible. But beware, unknown creatures are lurking in the depths.<br>Descend. Defend. Survive.</p>
+                                <!-- <p>Descend. Defend. Survive.</p> -->
+                                <p>This is a tower defense game with a mining twist. Place towers like in any tower defense, but mine resources in order to unlock features and improvements.</p>
+                                <p>The game is written in C++, using SFML.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hp project-page">
+                    <div class="box">
+                        <div class="column game-media">
+                            <!-- Game images, like in steam -->
+                            <div class="image-container">
+                                <img id="pong-image" src="media_pong/pong_2v2_wavepowerup.png" alt="Main Image">
+                            </div>
+                            <div class="thumbnail-container">
+                                <img class="thumbnail active" src="media_pong/pong_2v2_wavepowerup.png" alt="Thumbnail 1" onclick="changePongImage(this)">
+                                <img class="thumbnail" src="media_pong/pong_2v2_walllight.png" alt="Thumbnail 2" onclick="changePongImage(this)">
+                                <img class="thumbnail" src="media_pong/pong_4v4_boost_light_powerup.png" alt="Thumbnail 3" onclick="changePongImage(this)">
+                                <img class="thumbnail" src="media_pong/pong_home.png" alt="Thumbnail 4" onclick="changePongImage(this)">
+                                <img class="thumbnail" src="media_pong/pong_credits.png" alt="Thumbnail 5" onclick="changePongImage(this)">
+                            </div>
+                        </div>
+                        <div class="column game-info">
+                            <div class="game-title">
+                                <h1>Pong</h1>
+                            </div>
+                            <div class="game-text">
+                                <p>
+                                    <span class="accent">The famous pong game visualized in 3D.</span>
+                                </p>
+                                <p>Play against your friend(s) or an AI. Play either the classic 1v1 or a 4-player rumble. Play normal mode or get crazy with powerups. The choice is yours!</p>
+                                <p>This was our final school group project, where we were supposed to create a website where people could log in and play against each other. I was mainly in charge of creating the actual game, using Three.js to create the stunning 3D world.</p>
+                                <p>Instructions and download on this Github repo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hp project-page">
+                    <div class="box">
+                        <div class="column game-media">
+                            <!-- Game images, like in steam -->
+                            <div class="image-container">
+                                <img id="cub3d-image" src="media_cub3d/titlemenuhover.png" alt="Main Image">
+                            </div>
+                            <div class="thumbnail-container">
+                                <img class="thumbnail active" src="media_cub3d/titlemenuhover.png" alt="Thumbnail 1" onclick="changeCub3dImage(this)">
+                                <img class="thumbnail" src="media_cub3d/levelmenu.png" alt="Thumbnail 2" onclick="changeCub3dImage(this)">
+                                <img class="thumbnail" src="media_cub3d/enemieskey.png" alt="Thumbnail 3" onclick="changeCub3dImage(this)">
+                                <img class="thumbnail" src="media_cub3d/doorlockkey.png" alt="Thumbnail 4" onclick="changeCub3dImage(this)">
+                                <img class="thumbnail" src="media_cub3d/leaderboard.png" alt="Thumbnail 5" onclick="changeCub3dImage(this)">
+                            </div>
+                        </div>
+                        <div class="column game-info">
+                            <div class="game-title">
+                                <h1>Cub3D</h1>
+                            </div>
+                            <div class="game-text">
+                                <!-- Game description -->
+                                <p>
+                                    <span class="accent">A raycasting game built for speedrunning.</span>
+                                </p>
+                                <p>Ever played Doom or Wolfenstein3D and thought they're too violent? Well, this game be just for you! Cub3D is all about trying to escape the slimey dungeons without harming anyone (although the monsters are trying to eat you).</p>
+                                <p>Built with MLX42 as a school project. Clone the repo from <a href="https://github.com/Turbonalle/cub3D" target="_blank">here</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="dots" id="projectDots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
+        <!-- Info -->
+        <div class="vertical-page">
+            <div class="info-page">
+                <svg class="info-bg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <div class="info-container">
+                    <h1>Skills</h1>
+                    <p>Placeholder text...</p>
+                </div>
             </div>
         </div>
     </div>
-
-    <!-- Arrow buttons -->
-    <!-- <div id="upButton" class="nav-button hidden">
-        <div class="arrowhead"></div>
-        <div class="shaft"></div>
-    </div>
-    <div id="downButton" class="nav-button">
-        <div class="arrowhead"></div>
-        <div class="shaft"></div>
-    </div> -->
 
     <!-- Navigation bar on top -->
     <div class="nav-bar">
@@ -193,6 +186,8 @@
         </svg>
     </div>
 
-    <script src="home.js"></script>
+    <!-- <script src="scroll.js"></script>
+    <script src="home.js"></script> -->
+    <script src="combine.js"></script>
 </body>
 </html>
