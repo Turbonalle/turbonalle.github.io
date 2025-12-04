@@ -1,0 +1,39 @@
+/*----------------------------------------------------------------------------*/
+/*  Nav-Bar                                                                   */
+/*----------------------------------------------------------------------------*/
+
+.nav-bar {
+	height: 60px;
+	width: 100vw;
+	position: fixed;
+	top: 0px;
+	z-index: 1000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 50px;
+}
+
+.nav-icon {
+    width: 40px;
+    height: 40px;
+	stroke: var(--color-icon);
+    transition: fill 0.3s ease;
+	cursor: pointer;
+}
+
+.nav-icon.active {
+	stroke: var(--color-highlight);
+    filter: url(#glow);
+	transition: filter 0.3s ease-in-out;
+}
+
+.vertical-page {
+	position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+	background: var(--color-bg);
+}

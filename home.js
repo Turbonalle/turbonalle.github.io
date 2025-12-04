@@ -186,6 +186,7 @@ function jumpToPage(page) {
     if (page < 0 || page >= vp_amount) return;
 
     vp_index = page;
+	console.log("Jumping to page, ", vp_index);
 	smoothScrollToY(vc, vp_index * window.innerHeight, scrollAnimationTime);
 }
 
@@ -240,13 +241,6 @@ function changeCub3dImage(thumbnail)
 vc.addEventListener('wheel', wheelScroll, {passive: false});
 vc.addEventListener('scroll', updateCurrentVpIndex, {passive: false});
 document.addEventListener("keydown", (e) => keyHandler(e.key));
-
-// const homeIcon = document.querySelector(".home-icon");
-// const projectsIcon = document.querySelector(".projects-icon");
-// const infoIcon = document.querySelector(".info-icon");
-// homeIcon.addEventListener("click", () => jumpToPage(0));
-// projectsIcon.addEventListener("click", () => jumpToPage(1));
-// infoIcon.addEventListener("click", () => jumpToPage(2));
 
 nav_icons.forEach((icon, i) => {
 	icon.addEventListener("click", () => jumpToPage(i));

@@ -1,0 +1,30 @@
+/*----------------------------------------------------------------------------*/
+/*  Profile                                                                   */
+/*----------------------------------------------------------------------------*/
+
+.profile img {
+	position: absolute;
+	height: 100%;
+	width: auto;
+	display: block;
+	filter: brightness(40%);
+}
+
+.profile-container {
+	position: relative;
+	width: 60%;
+	height: 100%;
+	display: flex;
+}
+
+.welcome-text {
+	position: absolute;
+	width: 50%;
+	top: 15%;
+	right: 0%;
+	color: var(--color-text);
+}
+
+.welcome-text p:nth-of-type(1) {
+	color: var(--color-accent);
+}

@@ -1,0 +1,26 @@
+/*----------------------------------------------------------------------------*/
+/*  Colors                                                                    */
+/*----------------------------------------------------------------------------*/
+
+:root {
+	--color-icon: white;
+	--color-bg: rgb(8, 8, 8);
+	--color-text: rgb(208, 208, 208);
+	--color-accent: greenyellow;
+
+	--color-highlight: rgb(255, 0, 238);
+
+	--color-dot-empty: rgb(105, 105, 105);
+	--color-dot-filled: greenyellow;
+	--color-dot-glow: rgba(173, 255, 47, 0.8);
+
+	--color-temp: rgb(37, 0, 37);
+}
+
+.accent {
+	color: var(--color-accent);
+}
+
+.highlight {
+	color: var(--color-highlight);
+}
