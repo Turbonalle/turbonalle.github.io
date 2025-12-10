@@ -76,6 +76,14 @@ a:hover {
 	color: var(--color-accent);
 }
 
+.center {
+	text-align: center;
+}
+
+.pt-1 {
+	padding-top: 0px;
+}
+
 .hidden {
 	display: none;
 }

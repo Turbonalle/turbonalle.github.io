@@ -58,10 +58,13 @@ function updateCurrentVpIndex() {
 }
 
 function updateNavHighlight() {
+	console.log("Updating nav-icons! vp: ", vp_index);
 	nav_icons.forEach((icon, i) => {
 		if (i === vp_index) {
+			console.log("Activating: ", i);
 			icon.classList.add("active");
 		} else {
+			console.log("Removing: ", i);
 			icon.classList.remove("active");
 		}
 	});
