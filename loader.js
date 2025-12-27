@@ -1,3 +1,11 @@
+function syncPages() {
+	vps = [...document.querySelectorAll('.vertical-page')];
+	vp_amount = vps.length;
+	// updatePagePositions();
+	// updateNavButtons();
+	console.log("Syncing pages! vp_amount: ", vp_amount);
+}
+
 async function loadComponent(name, file, connectedCallback = null) {
 	const res = await fetch(file);
 	const html = await res.text();
@@ -18,9 +26,9 @@ async function loadComponent(name, file, connectedCallback = null) {
 	});
 }
 
-loadComponent("section-profile", "components/section-profile.html");
+await loadComponent("section-profile", "components/section-profile.html");
 
-loadComponent("section-webpages", "components/section-webpages.html", async (element) => {
+await loadComponent("section-webpages", "components/section-webpages.html", async (element) => {
 	const pages = [
 		"webpages.html",
 		"math-game.html",
@@ -65,3 +73,5 @@ loadComponent("section-webpages", "components/section-webpages.html", async (ele
 // 		container.appendChild(template.content.cloneNode(true));
 // 	}
 // });
+
+syncPages();

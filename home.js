@@ -1,11 +1,4 @@
-const vc = document.querySelector('.full-page');
-const vps = document.querySelectorAll('.vertical-page');
-const vp_amount = vps.length;
-const nav_icons = document.querySelectorAll('.nav-icon');
 
-const scrollAnimationTime = 300;
-let isScrolling = false;
-let vp_index = 0;
 
 function easeInOutQuad(t) {
 	return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
@@ -32,6 +25,7 @@ function updateDots(vp, index) {
 }
 
 function resetHorizontalScrollIfNeeded(newIndex) {
+	if (vps.length === 0) return;
 	vps.forEach((vp, i) => {
 		if (i !== newIndex) {
 			const hc = vp.querySelector('.horizontal-pages');
