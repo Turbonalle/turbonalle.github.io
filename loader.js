@@ -1,9 +1,20 @@
+function syncDots() {
+	projectDots = document.getElementById("projectDots");
+	if (!projectDots) return;
+	
+	[...projectDots.children].forEach((dot, index) => {
+		dot.addEventListener("click", () => jumpToProject(index));
+	});
+}
+
 function syncPages() {
 	vps = [...document.querySelectorAll('.vertical-page')];
 	vp_amount = vps.length;
-	// updatePagePositions();
-	// updateNavButtons();
-	console.log("Syncing pages! vp_amount: ", vp_amount);
+
+	nav_icons.forEach((icon, i) => {
+		icon.addEventListener("click", () => jumpToPage(i));
+	});
+	syncDots();
 }
 
 async function loadComponent(name, file, connectedCallback = null) {
@@ -51,27 +62,29 @@ await loadComponent("section-webpages", "components/section-webpages.html", asyn
 	}
 });
 
-// loadComponent("section-games", "components/section-games.html", async (element) => {
-// 	const pages = [
-// 		"webpages.html",
-// 		"math-game.html",
-// 		"wordsearch-generator.html",
-// 		"birthday-invitation.html"
-// 	];
+await loadComponent("section-games", "components/section-games.html", async (element) => {
+	const pages = [
+		"games.html",
+		"oozeheart.html",
+		"pong.html",
+		"cub3d.html"
+	];
 	
-// 	const container = element.querySelector(".horizontal-pages-webpages");
-// 	if (!container) {
-// 		console.error("horizontal-pages-webpages element not found");
-// 		return;
-// 	}
+	const container = element.querySelector(".horizontal-pages-games");
+	if (!container) {
+		console.error("horizontal-pages-webpages element not found");
+		return;
+	}
 
-// 	for (const file of pages) {
-// 		const res = await fetch(`components/projects-webpages/${file}`);
-// 		const html = await res.text();
-// 		const template = document.createElement("template");
-// 		template.innerHTML = html;
-// 		container.appendChild(template.content.cloneNode(true));
-// 	}
-// });
+	for (const file of pages) {
+		const res = await fetch(`components/projects-games/${file}`);
+		const html = await res.text();
+		const template = document.createElement("template");
+		template.innerHTML = html;
+		container.appendChild(template.content.cloneNode(true));
+	}
+});
+
+await loadComponent("section-info", "components/section-info.html");
 
 syncPages();

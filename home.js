@@ -15,6 +15,8 @@ function setScrolling(scr) {
 
 function updateDots(vp, index) {
 	const dots = vp.querySelectorAll(".dot");
+	console.log("Updating dots for vp: ", vp, " to index: ", index);
+	console.log("Dot amount: ", dots.length);
 	dots.forEach((dot, i) => {
 		if (i === index) {
 			dot.classList.add("active");
@@ -25,7 +27,6 @@ function updateDots(vp, index) {
 }
 
 function resetHorizontalScrollIfNeeded(newIndex) {
-	if (vps.length === 0) return;
 	vps.forEach((vp, i) => {
 		if (i !== newIndex) {
 			const hc = vp.querySelector('.horizontal-pages');
@@ -239,11 +240,10 @@ vc.addEventListener('wheel', wheelScroll, {passive: false});
 vc.addEventListener('scroll', updateCurrentVpIndex, {passive: false});
 document.addEventListener("keydown", (e) => keyHandler(e.key));
 
-nav_icons.forEach((icon, i) => {
-	icon.addEventListener("click", () => jumpToPage(i));
-});
+// nav_icons.forEach((icon, i) => {
+// 	icon.addEventListener("click", () => jumpToPage(i));
+// });
 
-const projectDots = document.getElementById("projectDots");
-Array.from(projectDots.children).forEach((dot, index) => {
-    dot.addEventListener("click", () => jumpToProject(index));
-});
+// Array.from(projectDots.children).forEach((dot, index) => {
+//     dot.addEventListener("click", () => jumpToProject(index));
+// });

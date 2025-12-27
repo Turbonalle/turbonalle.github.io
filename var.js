@@ -1,6 +1,6 @@
 const vc = document.querySelector('.full-page');
 const nav_icons = document.querySelectorAll('.nav-icon');
-
+let projectDots = [];
 let vps = [];
 let vp_amount = 0;
 
