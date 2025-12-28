@@ -188,9 +188,9 @@ function jumpToPage(page) {
 	smoothScrollToY(vc, vp_index * window.innerHeight, scrollAnimationTime);
 }
 
-function jumpToProject(index) {
+function jumpToWebpageProject(index) {
     if (isScrolling) return;
-    if (index < 0 || index >= projectDots.children.length) return;
+    if (index < 0 || index >= gameProjectDots.children.length) return;
 	
 	const hc = vps[1].querySelector(".horizontal-pages");
 	if (!hc) {
@@ -199,6 +199,20 @@ function jumpToProject(index) {
 	}
 
 	updateDots(vps[1], index);
+	smoothScrollToX(hc, index * window.innerWidth, scrollAnimationTime);
+}
+
+function jumpToGameProject(index) {
+    if (isScrolling) return;
+    if (index < 0 || index >= gameProjectDots.children.length) return;
+	
+	const hc = vps[2].querySelector(".horizontal-pages");
+	if (!hc) {
+		console.log("No horizontal container found at vertical index: ", vp_index);
+		return;
+	}
+
+	updateDots(vps[2], index);
 	smoothScrollToX(hc, index * window.innerWidth, scrollAnimationTime);
 }
 
@@ -239,11 +253,3 @@ function changeCub3dImage(thumbnail)
 vc.addEventListener('wheel', wheelScroll, {passive: false});
 vc.addEventListener('scroll', updateCurrentVpIndex, {passive: false});
 document.addEventListener("keydown", (e) => keyHandler(e.key));
-
-// nav_icons.forEach((icon, i) => {
-// 	icon.addEventListener("click", () => jumpToPage(i));
-// });
-
-// Array.from(projectDots.children).forEach((dot, index) => {
-//     dot.addEventListener("click", () => jumpToProject(index));
-// });

@@ -1,9 +1,16 @@
 function syncDots() {
-	projectDots = document.getElementById("projectDots");
-	if (!projectDots) return;
+	webpageProjectDots = document.getElementById("webpageProjectDots");
+	if (!webpageProjectDots) return;
 	
-	[...projectDots.children].forEach((dot, index) => {
-		dot.addEventListener("click", () => jumpToProject(index));
+	[...webpageProjectDots.children].forEach((dot, index) => {
+		dot.addEventListener("click", () => jumpToWebpageProject(index));
+	});
+
+	gameProjectDots = document.getElementById("gameProjectDots");
+	if (!gameProjectDots) return;
+	
+	[...gameProjectDots.children].forEach((dot, index) => {
+		dot.addEventListener("click", () => jumpToGameProject(index));
 	});
 }
 
