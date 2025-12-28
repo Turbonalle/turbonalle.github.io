@@ -93,6 +93,8 @@ function smoothScrollToX(container, targetX, duration) {
 		}
 	}
 
+	// console.log("Updating dots to: ", Math.round(targetX / window.innerWidth));
+
 	updateDots(container.parentElement, Math.round(targetX / window.innerWidth));
 	requestAnimationFrame(animateScroll);
 }
@@ -190,7 +192,7 @@ function jumpToPage(page) {
 
 function jumpToWebpageProject(index) {
     if (isScrolling) return;
-    if (index < 0 || index >= gameProjectDots.children.length) return;
+    if (index < 0 || index >= webpageProjectDots.children.length) return;
 	
 	const hc = vps[1].querySelector(".horizontal-pages");
 	if (!hc) {
