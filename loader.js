@@ -12,6 +12,13 @@ function syncDots() {
 	[...gameProjectDots.children].forEach((dot, index) => {
 		dot.addEventListener("click", () => jumpToGameProject(index));
 	});
+
+	otherProjectDots = document.getElementById("otherProjectDots");
+	if (!otherProjectDots) return;
+	
+	[...otherProjectDots.children].forEach((dot, index) => {
+		dot.addEventListener("click", () => jumpToOtherProject(index));
+	});
 }
 
 function syncPages() {
@@ -85,6 +92,27 @@ await loadComponent("section-games", "components/section-games.html", async (ele
 
 	for (const file of pages) {
 		const res = await fetch(`components/projects-games/${file}`);
+		const html = await res.text();
+		const template = document.createElement("template");
+		template.innerHTML = html;
+		container.appendChild(template.content.cloneNode(true));
+	}
+});
+
+await loadComponent("section-projects", "components/section-projects.html", async (element) => {
+	const pages = [
+		"projects.html",
+		"discord-bot.html"
+	];
+	
+	const container = element.querySelector(".horizontal-pages-projects");
+	if (!container) {
+		console.error("horizontal-pages-projects element not found");
+		return;
+	}
+
+	for (const file of pages) {
+		const res = await fetch(`components/projects-other/${file}`);
 		const html = await res.text();
 		const template = document.createElement("template");
 		template.innerHTML = html;

@@ -6,17 +6,17 @@ function easeInOutQuad(t) {
 
 function setScrolling(scr) {
 	isScrolling = scr;
-	if (scr) {
-		console.log('Scrolling started');
-	} else {
-		console.log('Scrolling done.');
-	}
+	// if (scr) {
+	// 	console.log('Scrolling started');
+	// } else {
+	// 	console.log('Scrolling done.');
+	// }
 }
 
 function updateDots(vp, index) {
 	const dots = vp.querySelectorAll(".dot");
-	console.log("Updating dots for vp: ", vp, " to index: ", index);
-	console.log("Dot amount: ", dots.length);
+	// console.log("Updating dots for vp: ", vp, " to index: ", index);
+	// console.log("Dot amount: ", dots.length);
 	dots.forEach((dot, i) => {
 		if (i === index) {
 			dot.classList.add("active");
@@ -32,7 +32,7 @@ function resetHorizontalScrollIfNeeded(newIndex) {
 			const hc = vp.querySelector('.horizontal-pages');
 			if (hc && hc.scrollLeft !== 0) {
 				hc.scrollLeft = 0;
-				console.log("Reset horizontal scroll for section: ", i);
+				// console.log("Reset horizontal scroll for section: ", i);
 				updateDots(vp, 0);
 			}
 		}
@@ -48,18 +48,18 @@ function updateCurrentVpIndex() {
 	if (Math.abs(scrollY - sectionHeight * newIndex) < tolerance) {
 		resetHorizontalScrollIfNeeded(newIndex);
 		vp_index = newIndex;
-		console.log('Updated vertical index:', vp_index);
+		// console.log('Updated vertical index:', vp_index);
 	}
 }
 
 function updateNavHighlight() {
-	console.log("Updating nav-icons! vp: ", vp_index);
+	// console.log("Updating nav-icons! vp: ", vp_index);
 	nav_icons.forEach((icon, i) => {
 		if (i === vp_index) {
-			console.log("Activating: ", i);
+			// console.log("Activating: ", i);
 			icon.classList.add("active");
 		} else {
-			console.log("Removing: ", i);
+			// console.log("Removing: ", i);
 			icon.classList.remove("active");
 		}
 	});
@@ -184,7 +184,7 @@ function jumpToPage(page) {
     if (page < 0 || page >= vp_amount) return;
 
     vp_index = page;
-	console.log("Jumping to page, ", vp_index);
+	// console.log("Jumping to page, ", vp_index);
 	smoothScrollToY(vc, vp_index * window.innerHeight, scrollAnimationTime);
 }
 
@@ -213,6 +213,20 @@ function jumpToGameProject(index) {
 	}
 
 	updateDots(vps[2], index);
+	smoothScrollToX(hc, index * window.innerWidth, scrollAnimationTime);
+}
+
+function jumpToOtherProject(index) {
+    if (isScrolling) return;
+    if (index < 0 || index >= otherProjectDots.children.length) return;
+	
+	const hc = vps[3].querySelector(".horizontal-pages");
+	if (!hc) {
+		console.log("No horizontal container found at vertical index: ", vp_index);
+		return;
+	}
+
+	updateDots(vps[3], index);
 	smoothScrollToX(hc, index * window.innerWidth, scrollAnimationTime);
 }
 
