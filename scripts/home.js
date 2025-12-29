@@ -65,14 +65,14 @@ function smoothScrollToX(container, targetX, duration) {
 	container.style.scrollSnapType = 'none';
 	container.style.scrollBehavior = 'auto';
 
-	let startX = container.scrollLeft;
-	let change = targetX - startX;
-	let startTime = performance.now();
+	const startX = container.scrollLeft;
+	const change = targetX - startX;
+	const startTime = performance.now();
 
 	function animateScroll(currentTime) {
-		let elapsed = currentTime - startTime;
-		let progress = Math.min(elapsed / duration, 1);
-		let ease = easeInOutQuad(progress);
+		const elapsed = currentTime - startTime;
+		const progress = Math.min(elapsed / duration, 1);
+		const ease = easeInOutQuad(progress);
 
 		container.scrollLeft = startX + change * ease;
 

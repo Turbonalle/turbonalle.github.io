@@ -21,6 +21,23 @@ function syncDots() {
 	});
 }
 
+function bindHorizontalScroll(container) {
+	let ticking = false;
+	console.log("Binding horizontal scroll for container: ", container);
+
+	container.addEventListener('scroll', () => {
+		if (ticking) return;
+		ticking = true;
+		console.log("Horizontal scroll detected");
+
+		requestAnimationFrame(() => {
+			const pageIndex = Math.round(container.scrollLeft / container.clientWidth);
+			updateDots(container.parentElement, pageIndex);
+			ticking = false;
+		});
+	});
+}
+
 function syncPages() {
 	vps = [...document.querySelectorAll('.vertical-page')];
 	vp_amount = vps.length;
@@ -29,4 +46,6 @@ function syncPages() {
 		icon.addEventListener("click", () => jumpToPage(i));
 	});
 	syncDots();
+
+	document.querySelectorAll(".horizontal-pages").forEach(bindHorizontalScroll);
 }
