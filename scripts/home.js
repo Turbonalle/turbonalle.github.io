@@ -4,15 +4,6 @@ function easeInOutQuad(t) {
 	return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 }
 
-function setScrolling(scr) {
-	isScrolling = scr;
-	// if (scr) {
-	// 	console.log('Scrolling started');
-	// } else {
-	// 	console.log('Scrolling done.');
-	// }
-}
-
 function updateDots(vp, index) {
 	const dots = vp.querySelectorAll(".dot");
 	// console.log("Updating dots for vp: ", vp, " to index: ", index);
@@ -89,13 +80,15 @@ function smoothScrollToX(container, targetX, duration) {
 			requestAnimationFrame(animateScroll);
 		} else {
 			container.style.scrollSnapType = 'x mandatory';
-			setScrolling(false);
+			isScrolling = false;
 		}
 	}
 
-	// console.log("Updating dots to: ", Math.round(targetX / window.innerWidth));
+	const pageCount = container.children.length;
+	const rawIndex = Math.round(targetX / container.clientWidth);
+	const index = Math.max(0, Math.min(rawIndex, pageCount - 1));
 
-	updateDots(container.parentElement, Math.round(targetX / window.innerWidth));
+	updateDots(container.parentElement, index);
 	requestAnimationFrame(animateScroll);
 }
 
@@ -124,7 +117,7 @@ function smoothScrollToY(container, targetY, duration) {
 		} else {
 			resetHorizontalScrollIfNeeded(vp_index);
 			container.style.scrollSnapType = 'y mandatory';
-			setScrolling(false);
+			isScrolling = false;
 		}
 	}
 
@@ -146,35 +139,11 @@ function wheelScroll(e) {
 		return;
 	}
 
-	setScrolling(true);
+	isScrolling = true;
 	smoothScrollToY(vc, vp_index * window.innerHeight, scrollAnimationTime);
 }
 
-function keyHandler(key) {
-	console.log("Key pressed: ", key);
-	if (isScrolling) return;
 
-    if (key === "ArrowDown") {
-		if (vp_index >= vp_amount - 1) return;
-		vp_index++;
-        smoothScrollToY(vc, vp_index * window.innerHeight, scrollAnimationTime);
-    }
-    else if (key === "ArrowUp") {
-		if (vp_index <= 0) return;
-		vp_index--;
-        smoothScrollToY(vc, vp_index * window.innerHeight, scrollAnimationTime);
-    }
-    else if (key === "ArrowRight") {
-		const hc = vps[vp_index].querySelector('.horizontal-pages');
-		if (!hc || hc.ScrollLeft >= (hc.scrollWidth - hc.clientWidth)) return;
-        smoothScrollToX(hc, hc.scrollLeft + window.innerWidth, scrollAnimationTime);
-    }
-    else if (key === "ArrowLeft") {
-        const hc = vps[vp_index].querySelector('.horizontal-pages');
-		if (!hc || hc.scrollLeft <= 0) return;
-        smoothScrollToX(hc, hc.scrollLeft - window.innerWidth, scrollAnimationTime);
-    }
-}
 
 
 //------------------------------------------------------------------------------
@@ -268,4 +237,3 @@ function changeCub3dImage(thumbnail)
 
 vc.addEventListener('wheel', wheelScroll, {passive: false});
 vc.addEventListener('scroll', updateCurrentVpIndex, {passive: false});
-document.addEventListener("keydown", (e) => keyHandler(e.key));
