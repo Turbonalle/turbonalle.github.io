@@ -7,6 +7,7 @@ body {
 	margin: 0;
 	font-family: 'Roboto', sans-serif;
 	color: var(--color-text);
+	font-size: calc(min(1.2vw, 2vh));
 	font-size: 1.2vw;
 }
 

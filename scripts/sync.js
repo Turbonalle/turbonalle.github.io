@@ -23,12 +23,10 @@ function syncDots() {
 
 function bindHorizontalScroll(container) {
 	let ticking = false;
-	console.log("Binding horizontal scroll for container: ", container);
 
 	container.addEventListener('scroll', () => {
 		if (ticking) return;
 		ticking = true;
-		console.log("Horizontal scroll detected");
 
 		requestAnimationFrame(() => {
 			const pageIndex = Math.round(container.scrollLeft / container.clientWidth);
