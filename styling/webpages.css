@@ -6,11 +6,3 @@
 	justify-content: center;
 	align-items: center;
 }
-
-.content-column {
-	width: 400px;
-	height: 80%;
-	padding: 20px;
-	/* border: 2px solid var(--color-highlight);
-	border-radius: 10px; */
-}

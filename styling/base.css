@@ -7,8 +7,7 @@ body {
 	margin: 0;
 	font-family: 'Roboto', sans-serif;
 	color: var(--color-text);
-	font-size: calc(min(1.2vw, 2vh));
-	font-size: 1.2vw;
+	font-size: clamp(11px, 1.2vw, 16px);
 }
 
 .full-page {
@@ -62,6 +61,11 @@ body {
 
 .info-container h1 {
 	color: var(--color-accent);
+}
+
+.content-column {
+	width: calc(min(90%, 700px));
+	height: 80%;
 }
 
 .full-page, .horizontal-pages {
