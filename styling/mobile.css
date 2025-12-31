@@ -1,6 +1,14 @@
 @media (max-width: 768px) {
 	body {
-		font-size: 14px;
+		font-size: 11px;
+	}
+
+	.nav-bar {
+		gap: 20px;
+	}
+
+	h1 {
+		font-size: 30px;
 	}
 
 	.profile-container {
@@ -13,7 +21,7 @@
 	}
 
 	.content-column {
-		width: 80%;
+		width: 90%;
 	}
 
 	.box {

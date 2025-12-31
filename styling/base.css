@@ -53,6 +53,17 @@ body {
 	overflow: hidden;
 }
 
+.info-container {
+	width: calc(min(90%, 500px));
+	height: 70vh;
+	text-align: start;
+	z-index: 1;
+}
+
+.info-container h1 {
+	color: var(--color-accent);
+}
+
 .full-page, .horizontal-pages {
 	scrollbar-width: none; /* Firefox */
 	-ms-overflow-style: none; /* IE 10+ */
@@ -64,8 +75,7 @@ body {
 }
 
 h1 {
-	font-size: 2.5em;
-	font-size: 3em;
+	font-size: 3rem;
 	margin-top: 0px;
 }
 

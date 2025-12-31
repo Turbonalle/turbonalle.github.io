@@ -18,17 +18,6 @@
     /* font-size: 0.7em; */
 }
 
-.info-container {
-	width: 250px;
-	height: 70vh;
-	text-align: center;
-	z-index: 1;
-}
-
-.info-container h1 {
-	color: var(--color-accent);
-}
-
 .icon-bg {
 	position: absolute;
 	width: 100%;
