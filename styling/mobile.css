@@ -11,6 +11,11 @@
 		font-size: 30px;
 	}
 
+	ul {
+		margin-top: 4px;
+		padding-left: 25px;
+	}
+
 	.profile-container {
 		width: 90%;
 	}

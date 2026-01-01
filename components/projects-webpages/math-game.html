@@ -2,21 +2,20 @@
 	<div class="content-column">
 		<h1 class="center highlight">Math Game</h1>
 		<p class="accent">A simple math game with a local Leaderboard. Perfect for motivating students to improve their math skills.</p>
-		<p>I used this project to introduce the following to my skillset:
-			<ul>
-				<li><span class="highlight">Node.js</span></li>
-				<li><span class="highlight">Vite</span></li>
-				<li><span class="highlight">React</span></li>
-				<li><span class="highlight">TypeScript</span></li>
-				<li><span class="highlight">Tailwind</span></li>
-			</ul>
-			It was also a perfect opportunity to try out:
-			<ul>
-				<li><span class="accent">LocalStorage</span> for the leaderboard</li>
-				<li><span class="accent">framer-motion</span> for animations</li>
-				<li><span class="accent">react-circle-flags</span> for language selection</li>
-			</ul>
-		</p>
+		<p class="no-bottom-margin">I used this project to introduce the following to my skillset:</p>
+		<ul>
+			<li><span class="highlight">Node.js</span></li>
+			<li><span class="highlight">Vite</span></li>
+			<li><span class="highlight">React</span></li>
+			<li><span class="highlight">TypeScript</span></li>
+			<li><span class="highlight">Tailwind</span></li>
+		</ul>
+		<p class="no-bottom-margin">It was also a perfect opportunity to try out:</p>
+		<ul>
+			<li><span class="accent">LocalStorage</span> for the leaderboard</li>
+			<li><span class="accent">framer-motion</span> for animations</li>
+			<li><span class="accent">react-circle-flags</span> for language selection</li>
+		</ul>
 		<p>LocalStorage stores the language selection and the scores in the browser, which means it stays for as long as you don't clean your browser memory, or use the "Reset Progress" button. Might change it to a database if I get to expand it at some point.</p>
 		<p>The most interesting, and confusing at first, part was the context, which ultimately was an immense help to provide languages in a practical way. It turned out quite well, making it easy to add languages in the future.</p>
 		<p>Another challenge I had was having the menu at the top being separate from the pages, while having the pages fill the rest of the screen. The solution was, in the end, quite simple. I created a Layout component returning a div wrapping around the menu and a div containing the rest of the page. That way the page had a parent element with a real size.</p>
