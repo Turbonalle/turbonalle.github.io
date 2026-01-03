@@ -54,7 +54,7 @@ body {
 
 .info-container {
 	width: calc(min(90%, 500px));
-	height: 70vh;
+	height: 80%;
 	text-align: start;
 	z-index: 1;
 }
