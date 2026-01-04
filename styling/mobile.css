@@ -1,6 +1,6 @@
 @media (max-width: 768px) {
 	body {
-		font-size: 11px;
+		font-size: 14px;
 	}
 
 	.nav-bar {
@@ -14,10 +14,6 @@
 	ul {
 		margin-top: 4px;
 		padding-left: 25px;
-	}
-
-	.profile-container {
-		width: 90%;
 	}
 
 	.welcome-text {
@@ -44,5 +40,16 @@
 	.game-title h1 {
 		margin: 0;
 		padding: 0;
+	}
+}
+
+
+@media (max-width: 480px) {
+	body {
+		font-size: 12px;
+	}
+	
+	.profile-container {
+		width: 90%;
 	}
 }
