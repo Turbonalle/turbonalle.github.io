@@ -18,9 +18,9 @@ async function loadComponent(name, file, connectedCallback = null) {
 	});
 }
 
-await loadComponent("section-profile", "components/section-profile.html");
+await loadComponent("section-profile", "components/section-containers/section-profile.html");
 
-await loadComponent("section-webpages", "components/section-webpages.html", async (element) => {
+await loadComponent("section-webpages", "components/section-containers/section-webpages.html", async (element) => {
 	const pages = [
 		"webpages.html",
 		"math-game.html",
@@ -44,7 +44,7 @@ await loadComponent("section-webpages", "components/section-webpages.html", asyn
 	}
 });
 
-await loadComponent("section-games", "components/section-games.html", async (element) => {
+await loadComponent("section-games", "components/section-containers/section-games.html", async (element) => {
 	const pages = [
 		"games.html",
 		"oozeheart.html",
@@ -67,7 +67,7 @@ await loadComponent("section-games", "components/section-games.html", async (ele
 	}
 });
 
-await loadComponent("section-projects", "components/section-projects.html", async (element) => {
+await loadComponent("section-projects", "components/section-containers/section-projects.html", async (element) => {
 	const pages = [
 		"projects.html",
 		"discord-bot.html"
@@ -88,6 +88,6 @@ await loadComponent("section-projects", "components/section-projects.html", asyn
 	}
 });
 
-await loadComponent("section-info", "components/section-info.html");
+await loadComponent("section-info", "components/section-containers/section-info.html");
 
 syncPages();
