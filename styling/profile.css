@@ -2,10 +2,17 @@
 /*  Profile                                                                   */
 /*----------------------------------------------------------------------------*/
 
+.profile {
+	position: relative;
+}
+
 .profile img {
 	position: absolute;
 	height: 100%;
+	/* max-width: 100%;
+	max-height: 100%; */
 	width: auto;
+	/* height: auto; */
 	display: block;
 	filter: brightness(40%);
 }

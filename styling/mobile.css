@@ -1,3 +1,22 @@
+@media (max-width: 1350px) {
+	.profile-container {
+		width: 80%;
+	}
+}
+
+@media (max-width: 1024px) {
+	.profile-container {
+		width: 90%;
+	}
+
+}
+
+@media (max-width: 920px) {
+	#bg-name {
+		right: -150px;
+	}
+}
+
 @media (max-width: 768px) {
 	body {
 		font-size: 14px;
@@ -16,6 +35,10 @@
 		padding-left: 25px;
 	}
 
+	.profile-container {
+		width: 90%;
+	}
+
 	.welcome-text {
 		width: 100%;
 		text-align: center;
@@ -23,6 +46,20 @@
 
 	.content-column {
 		width: 90%;
+	}
+
+	#bg-guy {
+		position: absolute;
+		left: -60px;
+		transform: scale(0.7);
+		transform-origin: left bottom;
+	}
+
+	#bg-name {
+		position: absolute;
+		right: -60px;
+		transform: scale(0.6);
+		transform-origin: right bottom;
 	}
 
 	.box {
@@ -35,6 +72,7 @@
 
 	.game-info {
 		width: 100%;
+		right: 0;
 	}
 
 	.game-title h1 {
